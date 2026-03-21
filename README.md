@@ -10,6 +10,10 @@ Local-first monitoring and operational guardrails for OpenClaw.
 
 - `skills/lite-watcher-deploy` — agent-facing installation, deployment, verification, and safety guidance for the watcher and its interaction boundary with `auto-resume-lite`
 
+## Operator quickstart
+
+- `docs/OPERATOR-QUICKSTART.md` — shortest safe path for checking deployment state, reading watcher output, and reloading only the watcher LaunchAgent if needed
+
 ## Current deployment target on this machine
 
 The watcher is deployed from this repo path and runs locally via launchd.
