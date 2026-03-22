@@ -5,10 +5,12 @@ Local-first monitoring and operational guardrails for OpenClaw.
 ## Packages
 
 - `packages/lite-watcher` — precision-first, ultra-light deterministic watcher for channel/config/runtime health
+- `packages/gateway-watchdog` — conservative companion watchdog for the narrow gateway fake-alive failure mode
 
-## Agent skill
+## Agent skills
 
 - `skills/lite-watcher-deploy` — agent-facing installation, deployment, verification, and safety guidance for the watcher and its interaction boundary with `auto-resume-lite`
+- `skills/gateway-watchdog-deploy` — agent-facing deployment, suppression, verification, and uninstall guidance for the gateway companion watchdog
 
 ## Operator quickstart
 
@@ -16,15 +18,18 @@ Local-first monitoring and operational guardrails for OpenClaw.
 
 ## Current deployment target on this machine
 
-The watcher is deployed from this repo path and runs locally via launchd.
+The monitor suite is deployed from this repo path and runs locally via launchd.
 
 Recommended runtime state/log paths:
 
-- state: `~/.openclaw/state/lite-watcher/`
-- logs: `~/.openclaw/logs/openclaw-lite-watcher.log`
+- lite watcher state: `~/.openclaw/state/lite-watcher/`
+- lite watcher logs: `~/.openclaw/logs/openclaw-lite-watcher.log`
+- gateway watchdog state: `~/.openclaw/state/gateway-watchdog/`
+- gateway watchdog logs: `~/.openclaw/logs/gateway-watchdog.log`
 
 ## Notes
 
 - Healthy path uses no LLM / no tokens.
-- Default watcher mode is read-only and non-invasive.
+- `lite-watcher` stays read-only and non-invasive by default.
+- `gateway-watchdog` is intentionally narrow and only acts on repeated, high-confidence gateway fake-alive conditions.
 - Human-facing direct chat sessions should not be auto-resumed by recovery plugins unless explicitly allowlisted.

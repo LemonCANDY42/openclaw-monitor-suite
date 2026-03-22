@@ -1,0 +1,11 @@
+{
+  "name": "openclaw-gateway-watchdog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Conservative companion watchdog for OpenClaw gateway fake-alive failures.",
+  "scripts": {
+    "check": "node src/watchdog.mjs check",
+    "status": "node src/watchdog.mjs status"
+  }
+}

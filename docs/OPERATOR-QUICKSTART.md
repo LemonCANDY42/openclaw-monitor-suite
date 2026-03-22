@@ -1,16 +1,22 @@
 # Operator Quickstart
 
-Use this when you want the fastest safe check of the deployed lite watcher on Kenny's Mac.
+Use this when you want the fastest safe check of the deployed OpenClaw monitor suite on Kenny's Mac.
 
 ## Core paths
 
 - Repo: `~/github/openclaw-agent-monitor`
-- Watcher package: `~/github/openclaw-agent-monitor/packages/lite-watcher`
-- Health check script: `~/github/openclaw-agent-monitor/scripts/check-lite-watcher-health.sh`
-- LaunchAgent label: `ai.openclaw.lite-watcher`
-- LaunchAgent plist: `~/Library/LaunchAgents/ai.openclaw.lite-watcher.plist`
-- Runtime state: `~/.openclaw/state/lite-watcher/`
-- Runtime logs: `~/.openclaw/logs/openclaw-lite-watcher.log`
+- Lite watcher package: `~/github/openclaw-agent-monitor/packages/lite-watcher`
+- Lite watcher health script: `~/github/openclaw-agent-monitor/scripts/check-lite-watcher-health.sh`
+- Lite watcher LaunchAgent label: `ai.openclaw.lite-watcher`
+- Lite watcher plist: `~/Library/LaunchAgents/ai.openclaw.lite-watcher.plist`
+- Lite watcher state: `~/.openclaw/state/lite-watcher/`
+- Lite watcher logs: `~/.openclaw/logs/openclaw-lite-watcher.log`
+- Gateway watchdog package: `~/github/openclaw-agent-monitor/packages/gateway-watchdog`
+- Gateway watchdog health script: `~/github/openclaw-agent-monitor/scripts/check-gateway-watchdog-health.sh`
+- Gateway watchdog LaunchAgent label: `ai.openclaw.gateway-watchdog`
+- Gateway watchdog plist: `~/Library/LaunchAgents/ai.openclaw.gateway-watchdog.plist`
+- Gateway watchdog state: `~/.openclaw/state/gateway-watchdog/`
+- Gateway watchdog logs: `~/.openclaw/logs/gateway-watchdog.log`
 
 ## 30-second health check
 
