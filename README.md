@@ -2,6 +2,37 @@
 
 Local-first monitoring and operational guardrails for OpenClaw.
 
+A conservative community companion for long-running OpenClaw deployments: lightweight health visibility, explicit operator checks, and narrow gateway self-recovery for a real failure mode.
+
+## Why this exists
+
+OpenClaw already has strong built-in status, health, doctor, and service-management paths.
+
+This repo is for a different layer: lightweight external monitoring and narrow companion recovery for deployments where manual intervention is expensive.
+
+The current suite is intentionally conservative:
+
+- `lite-watcher` stays read-only by default
+- `gateway-watchdog` only acts on a narrow, repeated, high-confidence failure class
+- logs, state, and LaunchAgent lifecycle remain explicit and inspectable
+
+This project should be treated as a **community companion**, not as a replacement for upstream reliability work.
+
+## Who this is for
+
+Most useful for:
+
+- remote-control OpenClaw setups
+- always-on / unattended deployments
+- multi-channel operators
+- people who want at least one reliable recovery path when the gateway gets weird
+
+Probably overkill for:
+
+- short-lived local-only usage
+- people already watching the machine interactively
+- users who do not need background confidence or recovery guardrails
+
 ## Packages
 
 - `packages/shared` — shared helpers and low-level contracts for the monitor suite
