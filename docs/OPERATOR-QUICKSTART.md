@@ -18,6 +18,22 @@ Use this when you want the fastest safe check of the deployed OpenClaw monitor s
 - Gateway watchdog state: `~/.openclaw/state/gateway-watchdog/`
 - Gateway watchdog logs: `~/.openclaw/logs/gateway-watchdog.log`
 
+## Install / reinstall
+
+Whole suite:
+
+```bash
+~/github/openclaw-agent-monitor/scripts/install-monitor-suite.sh
+```
+
+Package-specific:
+
+```bash
+~/github/openclaw-agent-monitor/scripts/install-gateway-watchdog.sh
+```
+
+Then verify with the suite health check.
+
 ## 30-second health check
 
 Run:
@@ -107,11 +123,24 @@ Then re-run the 30-second health check.
 - Do not restart OpenClaw or rewrite config just because this signal exists.
 - The watcher is meant to be deterministic and read-only by default.
 
-## Monitor framework notes
+## Recommended management and usage
 
 - treat this repo as the operator surface for multiple watchdogs, not one giant watcher runtime
 - use the suite health script first, then route to a package-specific script or skill
+- prefer reinstall over ad hoc launchd edits when a service looks stale
+- suppress action-capable watchdogs before planned maintenance / restart work
 - after OpenClaw upgrades, re-check `docs/KNOWN-ISSUES-BY-VERSION.md` before trusting version-sensitive workarounds
+- keep healthy-path behavior light: low frequency, low noise, no unnecessary recovery attempts
+
+## Uninstall
+
+Whole suite:
+
+```bash
+~/github/openclaw-agent-monitor/scripts/uninstall-monitor-suite.sh
+```
+
+Use this only if you explicitly want to remove the monitor-suite LaunchAgents from this machine.
 
 ## Current safe posture for `auto-resume-lite`
 

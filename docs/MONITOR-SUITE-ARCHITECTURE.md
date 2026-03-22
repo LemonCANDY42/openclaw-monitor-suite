@@ -59,6 +59,7 @@ Use a common operator surface for:
 - uninstall
 - suppression
 - docs lookup
+- version-aware revalidation after OpenClaw upgrades
 
 ## Why not one giant watcher process
 
@@ -134,11 +135,18 @@ OpenClaw should be able to:
 
 OpenClaw should **not** blindly restart or broaden recovery logic just because a watchdog exists.
 
+## Recommended operating model
+
+- install/reinstall from the suite root when you want predictable local state
+- use package-specific scripts only for targeted maintenance
+- keep each watchdog single-purpose and low-frequency
+- prefer observable files, logs, and LaunchAgent state over hidden coordination
+- if a watchdog needs to act, require explicit suppression windows, retry budgets, and recovery verification
+
 ## Near-term evolution
 
 Next natural additions:
 
 - `packages/shared/` for common helpers
-- a unified suite health script
-- version-aware operational docs
-- a monitor-suite skill that routes agents to the right package/service/doc quickly
+- version-aware operational docs refinement
+- a stronger unified operator surface if the current scripts stay clean and low-risk

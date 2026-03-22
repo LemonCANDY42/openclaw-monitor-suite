@@ -19,6 +19,24 @@ Local-first monitoring and operational guardrails for OpenClaw.
 - `docs/MONITOR-SUITE-ARCHITECTURE.md` — framework structure and separation model
 - `docs/KNOWN-ISSUES-BY-VERSION.md` — version-sensitive operational quirks and revalidation notes
 
+## Install / reinstall / uninstall
+
+Whole suite:
+
+```bash
+~/github/openclaw-agent-monitor/scripts/install-monitor-suite.sh
+~/github/openclaw-agent-monitor/scripts/check-monitor-suite-health.sh
+~/github/openclaw-agent-monitor/scripts/uninstall-monitor-suite.sh
+```
+
+Package-specific:
+
+```bash
+~/github/openclaw-agent-monitor/scripts/install-gateway-watchdog.sh
+~/github/openclaw-agent-monitor/scripts/check-gateway-watchdog-health.sh
+~/github/openclaw-agent-monitor/scripts/check-lite-watcher-health.sh
+```
+
 ## Current deployment target on this machine
 
 The monitor suite is deployed from this repo path and runs locally via launchd.
@@ -29,6 +47,21 @@ Recommended runtime state/log paths:
 - lite watcher logs: `~/.openclaw/logs/openclaw-lite-watcher.log`
 - gateway watchdog state: `~/.openclaw/state/gateway-watchdog/`
 - gateway watchdog logs: `~/.openclaw/logs/gateway-watchdog.log`
+
+## Recommended management model
+
+- Treat this repo as the single operator surface for monitor installation, checks, and docs.
+- Keep watchdogs as separate LaunchAgents; do **not** merge them into one giant always-on process.
+- Prefer suite-level checks first, then package-specific diagnosis only when needed.
+- Use suppression windows before planned gateway maintenance or risky restart work.
+- Re-check `docs/KNOWN-ISSUES-BY-VERSION.md` after OpenClaw upgrades before trusting old workarounds.
+
+## Recommended usage model
+
+- Use the monitor suite for **lightweight background confidence**, not for noisy constant intervention.
+- Let `lite-watcher` stay read-only by default.
+- Let `gateway-watchdog` stay narrow and budgeted.
+- Prefer explicit, observable state/log files over hidden magic.
 
 ## Notes
 
