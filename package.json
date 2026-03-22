@@ -1,5 +1,5 @@
 {
-  "name": "openclaw-agent-monitor",
+  "name": "openclaw-monitor-suite",
   "private": true,
   "version": "0.1.0",
   "type": "module",

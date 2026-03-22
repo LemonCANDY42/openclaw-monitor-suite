@@ -1,8 +1,11 @@
-# openclaw-agent-monitor
+# openclaw-monitor-suite
 
-Local-first monitoring and operational guardrails for OpenClaw.
+Local-first monitor/watchdog suite and operational guardrails for OpenClaw.
 
 A conservative community companion for long-running OpenClaw deployments: lightweight health visibility, explicit operator checks, and narrow gateway self-recovery for a real failure mode.
+
+> GitHub repo name: `openclaw-monitor-suite`  
+> Current local deployment path on this machine intentionally remains `~/github/openclaw-agent-monitor` for runtime stability.
 
 ## Why this exists
 

@@ -1,6 +1,6 @@
 # Monitor Suite Architecture
 
-`openclaw-agent-monitor` is the monitor framework for local OpenClaw operations on this machine class.
+`openclaw-monitor-suite` is the monitor framework for local OpenClaw operations on this machine class.
 
 ## Design goal
 
